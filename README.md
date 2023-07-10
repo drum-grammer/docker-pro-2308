@@ -1,8 +1,15 @@
 # Docker : 나만의 도커 이미지 만들기 부터, 클라우드 배포까지!
-4월 원티드 프리 온보딩 챌린지 - docker 뽀개기
+8월 원티드 프리 온보딩 챌린지 - docker 뽀개기
 
 
 ## I. 사전 미션하는 법
+
+### 방법 1
+1. 해당 repository를 fork 하세요.
+2. 로컬에서 작업한 커밋을 fork한 repository에 push 하세요.
+5. Pull Request를 생성하여, 사전 미션을 제출해주세요.
+
+### 방법 2
 1. 해당 repository를 clone 하세요:
 ```
 git clone git@github.com:drum-grammer/docker-pro-wanted.git
