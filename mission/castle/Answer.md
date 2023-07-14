@@ -38,3 +38,4 @@
 DokerFile --(Build)--> Image --(Create)--> Container
 
 ## 4. [실전 미션] 도커 설치하기 
+![screenshot](img.png)
