@@ -21,4 +21,4 @@
 도커 컨테이너를 생성합니다.
 
 # 4.[실전미션] 도커 설치하기
-docker-hello-world.png 파일을 확인해주세요.
+jinnykim-docker-run.PNG 파일을 확인해주세요.
