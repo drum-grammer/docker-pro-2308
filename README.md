@@ -29,13 +29,16 @@ git push -u origin my-branch-xx
 
 ## II. 사전 미션
 1. 컨테이너 기술이란 무엇입니까? (100자 이내로 요약)
-
+Container는 다양한 컴퓨팅 환경에 쉽게 배포할 수 있도록 코드, 라이브러리 구성 파일과 같은 애플리케이션 구성을 압축한 가볍고 실행 가능한 소프트웨어 단위이자 프로세스이다. 즉 우리가 만드는 서비스를 Instructure as Code에 기반하여 컨테이너화하는 기술이다.
 2. 도커란 무엇입니까? (100자 이내로 요약)
-
-3. 도커 파일, 도커 이미지, 도커 컨테이너의 개념은 무엇이고, 서로 어떤 관계입니까?
-
-4. [실전 미션] 도커 설치하기 (참조: [도커 공식 설치 페이지](https://docs.docker.com/engine/install/))
+컨테이너 기반의 애플리케이션을 개발하고 배포하고 실행할 수 있는 오픈 소스 플랫폼이다. 개인 컴퓨터의 infrastructure과 격리시켜 앱을 실행하기 때문에 소프트웨어 실행 속도가 빠르고, infrastructure as code 개발 환경 셋팅을 코드로 진행한다.
+4. 도커 파일, 도커 이미지, 도커 컨테이너의 개념은 무엇이고, 서로 어떤 관계입니까?
+- Docker file: Immutable한 Infrastructure를 생성하고 image를 가져오고 실행하고 업데이트하는 등의 기능을 코드처럼 작성한 파일이다.
+- Image: 앱을 실행하기 위한 모든 것들을 포함한 하나의 단위이고, 특정 프로세스를 실행하기 위한 파일이다. (code + runtime library + envorionment variables...)
+- Container: 이미지를 실행하기 위해 담을 수 있는 구조로 이미지의 런타임 객체이다. 이미지를 실행하여 메모리를 차지하기 시작하면 컨테이너가 된다. 여러 개의 컨테이너가 하나의 이미지를 위해 존재할 수 있다.
+5. [실전 미션] 도커 설치하기 (참조: [도커 공식 설치 페이지](https://docs.docker.com/engine/install/))
 - 아래 `도커 설치부터 실행 튜토리얼`을 참조하여 도커를 설치하고, 도커 컨테이너를 실행한 화면을 캡쳐해서 Pull Request에 올리세요.
+<img width="731" alt="image" src="https://github.com/ranunclulus/docker-pre-onboarding/assets/87214089/4016a9ff-d2ab-47f2-93ae-5b816314ae02">
 
 
 ## III. 도커 설치부터 실행 튜토리얼
