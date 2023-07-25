@@ -11,4 +11,4 @@ Go언어로 작성된 리눅스 컨테이너 기반으로 하는 오픈소스 �
 도커 컨테이너 - 도커 이미지를 실행한 상태<br>
 
 6. [실전 미션] 도커 설치하기<br>
-/Users/yunheejoong/docker-pro-wanted/mission/heejoong/docker-screenshot.png
+<img width="1062" alt="docker-screenshot" src="https://github.com/h271-middle/docker/assets/114089228/e2f46795-5579-402d-8dda-a0f6272bbc7c">
