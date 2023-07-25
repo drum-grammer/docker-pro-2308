@@ -14,4 +14,4 @@ Container는 다양한 컴퓨팅 환경에 쉽게 배포할 수 있도록 코드
 - Container: 이미지를 실행하기 위해 담을 수 있는 구조로 이미지의 런타임 객체이다. 이미지를 실행하여 메모리를 차지하기 시작하면 컨테이너가 된다. 여러 개의 컨테이너가 하나의 이미지를 위해 존재할 수 있다.
 5. [실전 미션] 도커 설치하기 (참조: [도커 공식 설치 페이지](https://docs.docker.com/engine/install/))
 - 아래 `도커 설치부터 실행 튜토리얼`을 참조하여 도커를 설치하고, 도커 컨테이너를 실행한 화면을 캡쳐해서 Pull Request에 올리세요.
-<img width="731" alt="image" src="https://github.com/ranunclulus/docker-pre-onboarding/assets/87214089/4016a9ff-d2ab-47f2-93ae-5b816314ae02">
+<img width="682" alt="image" src="https://github.com/ranunclulus/docker-pro-2308/assets/87214089/4a066da3-6b1f-4b77-82c5-804ef3968873">
