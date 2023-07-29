@@ -20,12 +20,10 @@ Container는 다양한 컴퓨팅 환경에 쉽게 배포할 수 있도록 코드
 
 <img width="563" alt="image" src="https://github.com/ranunclulus/docker-pro-2308/assets/87214089/8beb4ccb-1662-4985-a90a-c514868cf12a">
 위 그림처럼 사용자가 실행하기 위한 Dockerfile을 만들어서 build하면 Docker daemon에서 실행 단위인 Image로 만든 뒤 Container에 올려서 실행하게 된다.
+
 4. [실전 미션] 도커 설치하기 (참조: [도커 공식 설치 페이지](https://docs.docker.com/engine/install/))
 컨테이너 기반의 애플리케이션을 개발하고 배포하고 실행할 수 있는 오픈 소스 플랫폼이다. 개인 컴퓨터의 infrastructure과 격리시켜 앱을 실행하기 때문에 소프트웨어 실행 속도가 빠르고, infrastructure as code 개발 환경 셋팅을 코드로 진행한다.
-4. 도커 파일, 도커 이미지, 도커 컨테이너의 개념은 무엇이고, 서로 어떤 관계입니까?
-- Docker file: Immutable한 Infrastructure를 생성하고 image를 가져오고 실행하고 업데이트하는 등의 기능을 코드처럼 작성한 파일이다.
-- Image: 앱을 실행하기 위한 모든 것들을 포함한 하나의 단위이고, 특정 프로세스를 실행하기 위한 파일이다. (code + runtime library + envorionment variables...)
-- Container: 이미지를 실행하기 위해 담을 수 있는 구조로 이미지의 런타임 객체이다. 이미지를 실행하여 메모리를 차지하기 시작하면 컨테이너가 된다. 여러 개의 컨테이너가 하나의 이미지를 위해 존재할 수 있다.
+
 5. [실전 미션] 도커 설치하기 (참조: [도커 공식 설치 페이지](https://docs.docker.com/engine/install/))
 - 아래 `도커 설치부터 실행 튜토리얼`을 참조하여 도커를 설치하고, 도커 컨테이너를 실행한 화면을 캡쳐해서 Pull Request에 올리세요.
 <img width="682" alt="image" src="https://github.com/ranunclulus/docker-pro-2308/assets/87214089/4a066da3-6b1f-4b77-82c5-804ef3968873">
