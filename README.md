@@ -1,4 +1,5 @@
 # Docker : 나만의 도커 이미지 만들기 부터, 클라우드 배포까지!
+<<<<<<< HEAD
 8월 원티드 프리 온보딩 챌린지 - docker 뽀개기
 
 
@@ -10,6 +11,12 @@
 5. Pull Request를 생성하여, 사전 미션을 제출해주세요.
 
 ### 방법 2
+=======
+4월 원티드 프리 온보딩 챌린지 - docker 뽀개기
+
+
+## I. 사전 미션하는 법
+>>>>>>> 3009f0f31708204a9ab44228d20b89581335de9b
 1. 해당 repository를 clone 하세요:
 ```
 git clone git@github.com:drum-grammer/docker-pro-wanted.git
@@ -76,7 +83,10 @@ docker build -t hello-world .
 docker run hello-world
 ```
 이 명령어는 hello-world라는 이름의 도커 이미지를 실행시켜 "Hello, World!"를 출력합니다.
+<<<<<<< HEAD
 
 ## IV. 도커 커맨드 라인 명령어 정리
 - [공식 문서](https://docs.docker.com/engine/reference/run/)
 - [cheat sheet](/lecture/1st/cli.md)
+=======
+>>>>>>> 3009f0f31708204a9ab44228d20b89581335de9b
