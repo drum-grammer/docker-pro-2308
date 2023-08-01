@@ -76,3 +76,7 @@ docker build -t hello-world .
 docker run hello-world
 ```
 이 명령어는 hello-world라는 이름의 도커 이미지를 실행시켜 "Hello, World!"를 출력합니다.
+
+## IV. 도커 커맨드 라인 명령어 정리
+- [공식 문서](https://docs.docker.com/engine/reference/run/)
+- [cheat sheet](/lecture/1st/cli.md)
