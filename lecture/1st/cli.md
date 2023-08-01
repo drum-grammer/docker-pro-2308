@@ -29,7 +29,7 @@ docker pull httpd
 ```shell
  docker run httpd
  docker run --name secondContainer httpd
- docker run -p 8888:80 -v ~/wanted/pre-mission/docker-pro-wanted/lecture-material:/usr/local/apache2/htdocs httpd
+docker run -p 8888:80 -v /Users/jk/wanted/2308/docker-pro-2308/lecture/1st:/usr/local/apache2/htdocs httpd
 
 ```
 
@@ -74,6 +74,26 @@ docker rm second -f
 - 예제
 ```shell
 docker rmi 6026ab9b44cc
+```
+
+### 8. [Remove one or more images](https://docs.docker.com/engine/reference/commandline/rmi/)
+- 사용법
+```shell
+ docker rmi [OPTIONS] IMAGE [IMAGE...]
+```
+- 예제
+```shell
+docker rmi 6026ab9b44cc
+```
+
+### 8. [Execute a command in a running container](https://docs.docker.com/engine/reference/commandline/rmi/)
+- 사용법
+```shell
+ docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+```
+- 예제
+```shell
+docker exec -it awesome_elion /bin/sh
 ```
 
 ## Dockerfile 활용
