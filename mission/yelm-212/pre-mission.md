@@ -25,4 +25,4 @@
 
 4. [실전 미션] 도커 설치하기 
 
-![](/docker-hello-world.png)
+![](docker-hello-world.png)
