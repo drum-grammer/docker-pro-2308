@@ -16,6 +16,6 @@ docker pull deadricecake/xmas-tree/latest
 ```
 ### 2. 땡겨온 이미지를 통해 컨테이너 실행
 ```
-docker run it deadricecake/xmas-tree/latest
+docker run -it deadricecake/xmas-tree/latest
 ```
 ### 3. 감상하기
