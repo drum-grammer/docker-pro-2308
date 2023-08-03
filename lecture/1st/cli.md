@@ -121,6 +121,72 @@ docker exec -it awesome_elion /bin/sh
  docker container stats
 ```
 
+### 11. [Manage images](https://docs.docker.com/engine/reference/commandline/image/)
+- 사용법
+```shell
+ docker image COMMAND
+```
+
+#### 11-1. [Remove unused images](https://docs.docker.com/engine/reference/commandline/image_prune/)
+- 사용법
+```shell
+ docker image prune [OPTIONS]
+```
+- 예제
+```shell
+ docker image prune
+```
+
+#### 11-2. [Display detailed information on one or more images](https://docs.docker.com/engine/reference/commandline/image_inspect/)
+- 사용법
+```shell
+ docker image inspect [OPTIONS]
+```
+- 예제
+```shell
+docker image inspect httpd
+```
+
+#### 11-3. [Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE](https://docs.docker.com/engine/reference/commandline/image_tag/)
+- 사용법
+```shell
+ docker image tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+```
+- 예제
+```shell
+docker image tag my-httpd drumgrammer/my-httpd:latest
+```
+
+### 12. [Upload an image to a registry](https://docs.docker.com/engine/reference/commandline/push/)
+- 사용법
+```shell
+ docker push [OPTIONS] NAME[:TAG]
+```
+- 예제
+```shell
+docker push drumgrammer/my-httpd:latest
+```
+
+### 13. [Log in to a registry](https://docs.docker.com/engine/reference/commandline/login/)
+- 사용법
+```shell
+ docker login [OPTIONS] [SERVER]
+```
+- 예제
+```shell
+ docker login
+```
+
+### 14. [Log out from a registry](https://docs.docker.com/engine/reference/commandline/logout/)
+- 사용법
+```shell
+ docker logout [SERVER]
+```
+- 예제
+```shell
+ docker logout
+```
+
 ## Dockerfile 활용
 1. Dockerfile 예제
 ```Dockerfile
