@@ -1,40 +1,14 @@
-# Docker : 나만의 도커 이미지 만들기 부터, 클라우드 배포까지!
-8월 원티드 프리 온보딩 챌린지 - docker 뽀개기
-
-
-## I. 사전 미션하는 법
-
-### 방법 1
-1. 해당 repository를 fork 하세요.
-2. 로컬에서 작업한 커밋을 fork한 repository에 push 하세요.
-5. Pull Request를 생성하여, 사전 미션을 제출해주세요.
-
-### 방법 2
-1. 해당 repository를 clone 하세요:
-```
-git clone git@github.com:drum-grammer/docker-pro-wanted.git
-```
-2. 별도의 브랜치를 생성하세요:
-```
-git checkout -b my-branch-xx
-```
-3. 아래 사전 미션 내용을 보고 답안을 마크다운 형식으로 작성하시고, `./mission/{nickName}` 디렉토리 저장해주세요.
-
-4. 해당 브랜치를 푸쉬해주세요.
-```
-git push -u origin my-branch-xx
-```
-5. Pull Request를 생성하여, 사전 미션을 제출해주세요.
-
-
 ## II. 사전 미션
 1. 컨테이너 기술이란 무엇입니까? (100자 이내로 요약)
-
+   라이브러리, 시스템 도구, 코드, 런타임 등 애플리케이션 실행에 필요한 묶음을 서버에서 독립적으로 사용할 수 있도록하는 것.
 2. 도커란 무엇입니까? (100자 이내로 요약)
-
+   컨테이너 기반의 오픈소스 가상화 플랫폼이다. 프로그램의 배포 및 관리를 단순하게 해줍니다.
 3. 도커 파일, 도커 이미지, 도커 컨테이너의 개념은 무엇이고, 서로 어떤 관계입니까?
+도커 파일 : 이미지 설정파일
+도커 이미지 : 어플리케이션 실행에 필요한 파일의 묶음
+도커 컨테이너 : 서버에서 애플리케이션을 실행하기 위해 이미지를 실행하는 것 
 
-4. [실전 미션] 도커 설치하기 (참조: [도커 공식 설치 페이지](https://docs.docker.com/engine/install/))
+5. [실전 미션] 도커 설치하기 (참조: [도커 공식 설치 페이지](https://docs.docker.com/engine/install/))
 - 아래 `도커 설치부터 실행 튜토리얼`을 참조하여 도커를 설치하고, 도커 컨테이너를 실행한 화면을 캡쳐해서 Pull Request에 올리세요.
 
 
@@ -76,7 +50,3 @@ docker build -t hello-world .
 docker run hello-world
 ```
 이 명령어는 hello-world라는 이름의 도커 이미지를 실행시켜 "Hello, World!"를 출력합니다.
-
-## IV. 도커 커맨드 라인 명령어 정리
-- [공식 문서](https://docs.docker.com/engine/reference/run/)
-- [cheat sheet](/lecture/1st/cli.md)
