@@ -3,9 +3,8 @@
 2) 통상 split함수를 통해 구현할 수 있으나 정규표현식을 사용하면서 학습하며 소스코드를 더욱 간략하게 구현하는 것에 목적
 
 # 2. Docker 실습
-1) Docker build
-![docker build.png](../../_resources/docker%20build.png)
+1) Docker build<br>
+![docker build.png](docker%20build.png)
 
-2) Docker run
-![docker run.png](../../_resources/docker%20run.png)
-
+2) Docker run<br>
+![docker run.png](docker%20run.png)
