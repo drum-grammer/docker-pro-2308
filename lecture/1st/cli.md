@@ -187,6 +187,22 @@ docker push drumgrammer/my-httpd:latest
  docker logout
 ```
 
+### 15. [Manage images](https://docs.docker.com/engine/reference/commandline/system/)
+- 사용법
+```shell
+ docker system COMMAND
+```
+
+#### 15-1. [Remove unused data](https://docs.docker.com/engine/reference/commandline/system_prune/)
+- 사용법
+```shell
+ docker system prune [OPTIONS]
+```
+- 예제
+```shell
+ docker system prune
+```
+
 ## Dockerfile 활용
 1. Dockerfile 예제
 ```Dockerfile
