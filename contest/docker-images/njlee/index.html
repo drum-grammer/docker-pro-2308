@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>포맷팅</title>
+</head>
+<style type="text/css">
+    body {width:400px}
+    .selectBox {position:relative;width:400px;height:33px}
+    .formatDiv {width:400px;height:33px;margin-top: 10px;};
+    
+    .formatDiv > input {height:100%;padding:0;display:inline-block;}
+    
+    .iptNum {width:50%;height:100%;padding:0;display:inline-block;}
+    .iptMrk {width:20%;height:100%;padding:0;margin-left: 10px;display:inline-block;}
+    .chngBtn {width:20%;height:100%;margin-left: 10px;display:inline-block;}
+    .chngFormat {width:396px;height:33px;padding:0;float: left;}
+    .code {position:relative;width:400px;height:auto;margin-top: 15px;}
+    
+    .warn {border:1px solid red}
+    .msg {font-size:5px;color:red;font-weight: bold;height:10px;}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+<body>
+    <h1 id="title">포맷변경</h1>
+    <input type="hidden" id="selectedValue" value="0"/>
+    <select id="selectBox" class="selectBox" onchange="changeFormat();">
+        <option value="0">변경할 포맷을 선택하세요</option>
+        <option value="1">날짜</option>
+        <option value="2">휴대전화번호</option>
+    </select>
+    <div id="dateFormat" class="formatDiv">
+        <input type="text" id="inputTxt" class="iptNum" placeholder="yyyymmdd, yymmdd" oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
+        onchange="validation(this)"/>
+        <input type="text" id="inputDateMrk" class="iptMrk" placeholder="구분기호" onchange="validation(this)"/>
+        <input type="button" value="변환" class="chngBtn" onclick="formating()"/>
+        <p class="msg">값 입력이 필요합니다.</p>
+        <div id="dateCode" class="code">
+            <input type="text" id="resultDate" class="chngFormat" disabled/>
+            <pre style="display:inline-block;width: 100%;margin-top:15px;border:1px solid black;">
+                <code>
+//날짜변환 예시코드(javascript)                
+function changeDateFormat() {
+    var date = "20230401";  //날짜
+    var mark = '/';         //구분기호
+    var regex = '';
+    
+    if(date.length == 6){
+        // 6자리인 경우
+        regex = RegExp(/(\d{2})(\d{2})(\d{2})/); 
+    }else if(date.length == 8){
+        // 8자리인 경우
+        regex = RegExp(/(\d{4})(\d{2})(\d{2})/); 
+    }
+
+    date.replace(regex, '$1'+mark+'$2'+mark+'$3');
+}
+                </code>
+            </pre>
+        </div> 
+    </div>
+    <div id="phoneFormat" class="formatDiv" style="display:none;">
+        <input type="text" id="inputPhoneNo" class="iptNum" placeholder="전화번호 11자리" oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
+        onchange="validation(this)"/>
+        <input type="text" id="inputPhoneMrk" class="iptMrk" placeholder="구분기호" onchange="validation(this)"/>
+        <input type="button" value="변환" class="chngBtn" onclick="formating()"/>
+        <p class="msg">값 입력이 필요합니다.</p>
+        <div id="phoneNoCode" class="code">
+            <input type="text" id="resultPhoneNo" class="chngFormat" disabled/>
+            <pre style="display:inline-block;width: 100%;margin-top:15px;border:1px solid black;">
+                <code>
+//휴대번호 변환 예시코드(javascript)                
+function changePhoneFormat() {
+    var phoneNo = "01012345678";  //날짜
+    var mark = '-';         //구분기호
+    var regex = "";
+    
+    if(phoneNo.length == 11){   
+
+        //전화번호가 11자리인 경우
+        regex = RegExp(/(\d{3})(\d{4})(\d{4})/);
+
+    }else if(phoneNo.length == 10){
+
+        //전화번호가 10자리인 경우 
+        regex = RegExp(/(\d{3})(\d{3})(\d{4})/);
+
+    }
+
+    phoneNo.replace(regex, '$1'+mark+'$2'+mark+'$3');
+}
+                </code>
+            </pre>
+        </div> 
+    </div>
+    
+    
+</body>
+</html>
+
+<script>
+    window.addEventListener('DOMContentLoaded',function () {
+        //페이지 초기화
+        pageInit();
+
+        //selectbox 선택값에 따른 변화
+        changeFormat();
+
+        //포맷변경
+        formating();
+
+    })
+
+    function pageInit() {
+        $('#selectBox').val(0);
+        $('#selectedValue').val(0);
+        $("input[type='text']").val('');
+        $(".formatDiv").hide();
+        $(".code").hide();
+        $(".msg").hide();
+    }
+
+    function changeFormat(){
+        let selectValue = $('#selectBox').val();
+        let selectedValue = $('#selectedValue').val();
+        var valueCase = "";
+        var viewCode = "";
+
+        //선택값이 다른경우 초기화
+        if(selectValue != selectedValue){
+            $('#selectedValue').val(selectValue);
+            $("input[type='text']").val('');
+            $(".code").hide();
+            $(".msg").hide();
+            $('.warn').removeClass('warn');
+        }
+
+        switch (selectValue) {
+            case "1":
+                valueCase = "#dateFormat";
+                viewCode = "#dateCode";
+                break;
+            case "2":
+                valueCase = "#phoneFormat";
+                viewCode = "#phoneNoCode";
+                break;
+        }
+        $(".formatDiv").hide();
+        $(valueCase).show();
+        $(viewCode).show();
+    }
+
+    function formating(){
+        let inputTxt = "";
+        let inputMrk = "";
+        
+        let selectValue = $('#selectBox').val();
+        var regex = "";
+        var format = "";
+        var location = "";
+        switch (selectValue) {
+            case "1":
+                inputTxt = $("#inputTxt").val();
+                inputMrk = $("#inputDateMrk").val();
+                if(inputTxt.length == 6){
+                    // 6자리인 경우
+                    regex = RegExp(/(\d{2})(\d{2})(\d{2})/); 
+                }else if(inputTxt.length == 8){
+                    // 8자리인 경우
+                    regex = RegExp(/(\d{4})(\d{2})(\d{2})/); 
+                }
+                format = '$1'+inputMrk+'$2'+inputMrk+'$3';
+                location = "#resultDate";
+                break;
+            case "2":
+                inputTxt = $("#inputPhoneNo").val();
+                inputMrk = $("#inputPhoneMrk").val();
+                if(inputTxt.length == 11){
+                    regex = RegExp(/(\d{3})(\d{4})(\d{4})/);
+                }else if(inputTxt.length == 10){
+                    regex = RegExp(/(\d{3})(\d{3})(\d{4})/); 
+                }
+                format = '$1'+inputMrk+'$2'+inputMrk+'$3';
+                location = "#resultPhoneNo"
+                break;
+        }
+        $(location).val(inputTxt.replace(regex, format));
+    }
+
+function validation(el) {
+    if(el.value == "" || el.value == null){
+        el.classList.add("warn");
+    }else {
+        el.classList.remove("warn");
+    }
+
+    if(document.querySelector('.warn') != null){
+        $(".msg").show();
+    }else {
+        $(".msg").hide();
+    }
+}
+
+</script>
