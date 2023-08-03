@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch Menu Recommender</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        /* New CSS for animation */
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        .fade-in-out {
+            animation: fadeInOut 3s ease-in-out;
+        }
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        .fade-in-out {
+            animation: fadeInOut 3s ease-in-out;
+        }
+
+        .countdown::after {
+            content: '...';
+            animation: countdown 1s infinite;
+        }
+        @keyframes countdown {
+            0% {
+                content: '....';
+            }
+            13% {
+                content: '...';
+            }
+            25% {
+                content: '..';
+            }
+            50% {
+                content: '.';
+            }
+            75% {
+                content: '..';
+            }
+            88% {
+                content: '...';
+            }
+            100% {
+                content: '....';
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>점메추?</h1>
+</header>
+<main>
+    <pre>
+          ＿＿
+　　　　　／＞　　フ
+　　　　　| 　_　 _l
+　 　　　／` ミ＿xノ
+　　 　 /　　　　 |
+　　　 /　 ヽ　　 ﾉ
+　 　 │　　|　|　|
+／￣|　　 |　|　|
+(￣ヽ＿_ヽ_)__)
+    </pre>
+    <br>
+    <button id="recommendBtn">오늘의 점메추 클릭~!</button>
+    <div id="recommendation"></div>
+</main>
+<script>
+    const lunchMenu = [
+        "김치찌개",
+        "된장찌개",
+        "부대찌개",
+        "순두부찌개",
+        "제육볶음",
+        "불고기",
+        "불닭",
+        "돈까스",
+        "치킨",
+        "피자",
+        "햄버거",
+        "초밥",
+        "라멘",
+        "우동",
+        "짜장면",
+        "짬뽕",
+        "탕수육",
+        "볶음밥",
+        "짜장밥",
+        "짬뽕밥",
+        "볶음면",
+        "잔치국수",
+        "비빔국수",
+        "냉면",
+        "떡볶이",
+        "순대",
+        "튀김",
+        "순대국",
+        "순대볶음",
+    ];
+
+    function addAnimation(element) {
+        element.classList.add('fade-in-out');
+        setTimeout(() => {
+            element.classList.remove('fade-in-out');
+        }, 3000);
+    }
+
+
+    const recommendBtn = document.getElementById("recommendBtn");
+    recommendBtn.addEventListener("click", recommendLunchWithAnimation);
+
+    function addCountdownAnimation(element) {
+        element.classList.add('countdown');
+    }
+
+    function removeCountdownAnimation(element) {
+        element.classList.remove('countdown');
+    }
+
+    function recommendLunchWithAnimation() {
+        const recommendationDiv = document.getElementById("recommendation");
+        recommendationDiv.innerHTML = ''; // Clear previous recommendation
+        const loadingText = document.createElement('p');
+        loadingText.textContent = '추천중';
+        recommendationDiv.appendChild(loadingText);
+
+        addCountdownAnimation(loadingText);
+
+        setTimeout(() => {
+            const randomIndex = Math.floor(Math.random() * lunchMenu.length);
+            const recommendedMenu = lunchMenu[randomIndex];
+            recommendationDiv.innerHTML = `<p>오늘은 <strong>${recommendedMenu}</strong> 이걸 드셔 보실래요??</p>
+                                            <a target="_blank" href="https://map.naver.com/v5/search/${recommendedMenu}">이곳을 클릭해서 찾아보자!!</a>`;
+
+            removeCountdownAnimation(loadingText);
+            addAnimation(recommendationDiv);
+        }, 3000);
+    }
+</script>
+
+</body>
+
+</html>
