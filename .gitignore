@@ -22,3 +22,6 @@
 
 # ignore vscode settings
 .vscode/
+
+# ignore vim backup files
+*.un~
