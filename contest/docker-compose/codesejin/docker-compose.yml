@@ -1,0 +1,30 @@
+version: '3'
+services:
+  database:
+    build: 
+      context: ./docker-mysql-db
+      dockerfile: Dockerfile
+    ports:
+      - 3306:3306
+    volumes:
+      - ./docker-mysql-db/store:/var/lib/mysql
+    networks:
+      - network
+  spring-server:
+    build: 
+      context: ./docker-test-server
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/codesejinDB?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_DRIVER: com.mysql.cj.jdbc.Driver
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root1234
+    networks:
+      - network
+networks:
+  network:
