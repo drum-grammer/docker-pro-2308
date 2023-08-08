@@ -1,0 +1,34 @@
+version: "3.0"
+
+services:
+  mysql:
+    container_name: mysql_server
+    image: mysql:5.7.30
+    restart: no
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/data:/var/lib/mysql
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pass
+      MYSQL_DATABASE: yoondb
+      MYSQL_USER: yoon
+      MYSQL_PASSWORD: yoon_pass
+  
+  web:
+    depends_on:
+      - mysql
+    container_name: web_server
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+    - ./webrepo:/var/www/html
+
+networks:
+  boardnetwork:
+    driver: bridge
