@@ -187,7 +187,7 @@ docker push drumgrammer/my-httpd:latest
  docker logout
 ```
 
-### 15. [Manage images](https://docs.docker.com/engine/reference/commandline/system/)
+### 15. [Manage Docker](https://docs.docker.com/engine/reference/commandline/system/)
 - 사용법
 ```shell
  docker system COMMAND
