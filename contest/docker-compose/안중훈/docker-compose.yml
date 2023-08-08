@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  db:
+    image: mariadb:10
+    ports:
+      - 3307:3306
+    volumes:
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
+      - ./docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+    env_file: test.env
+    environment:
+      TZ: Asia/Seoul
+    networks:
+      - backend
+    restart: always
+
+networks:
+  backend:
